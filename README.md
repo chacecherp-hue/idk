@@ -37,6 +37,30 @@ npx remotion render
 npx remotion upgrade
 ```
 
+## CHERP product film
+
+`CherpFilm` is a 15 s, 1920×1080, 30 fps product film. Its source is in `src/Cherp/`.
+The pieces are modelled from the CAD reference in `public/reference/cad-reference.png`
+and rendered in Three.js as cast concrete.
+
+```console
+npx remotion render CherpFilm out/cherp-film.mp4
+```
+
+| File | What it holds |
+| --- | --- |
+| `dimensions.ts` | Every size and position of the product, read off the reference. Adjust geometry here. |
+| `geometry.ts` | Filleted castings with their pockets and slots cut out by CSG. |
+| `concrete.ts` | Procedural solid-texture concrete: tonal drift, mottle, sand grain, aggregate and pinholes. |
+| `Product.tsx` | The three castings, incense sticks with embers, and the lighter. |
+| `Smoke.tsx` | Incense smoke shader, driven by the frame number so renders are repeatable. |
+| `Stage.tsx` | Charcoal plinth and room, warm off-white wall, key, rim and wall-wash lights. |
+| `camera.ts` | The shots: low-angle reveal, 180° orbit, macro, push-in to hero. |
+| `PostFX.tsx` | Ambient occlusion, depth of field, bloom, ACES tone mapping, vignette and grain. |
+
+On a machine without a GPU, render with software WebGL: add `--gl=swangle`.
+Each frame then takes around 20–30 s.
+
 ## Docs
 
 Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
