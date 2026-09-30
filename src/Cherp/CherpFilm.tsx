@@ -131,7 +131,7 @@ export const CherpFilm: React.FC = () => {
       <ThreeCanvas
         width={width}
         height={height}
-        shadows={{ type: THREE.PCFSoftShadowMap }}
+        shadows={{ type: THREE.PCFShadowMap }}
         flat
         dpr={1}
         gl={{ antialias: false, preserveDrawingBuffer: true, powerPreference: "high-performance" }}
